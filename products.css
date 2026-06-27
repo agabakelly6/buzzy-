@@ -1,0 +1,238 @@
+/* ═══════════════════════════════════════════
+   PRODUCT PAGES — Stylish Dark-Tech Theme
+   products.css — imported on product pages
+═══════════════════════════════════════════ */
+
+/* ── Page base: dark mesh background ── */
+.product-page {
+    background-color: #080e1f;
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+/* Animated dot-grid overlay */
+.product-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(77,217,172,0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Override footer for dark pages */
+.product-page footer {
+    background: #040810;
+    color: rgba(255,255,255,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Category Hero ── */
+.cat-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 24px 80px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Per-category accent colours */
+.phones-hero   { background: linear-gradient(135deg, #0a0e20 0%, #0d1f45 50%, #0a2060 100%); }
+.laptops-hero  { background: linear-gradient(135deg, #0a0e20 0%, #1a0d35 50%, #2a0d55 100%); }
+.gadgets-hero  { background: linear-gradient(135deg, #0a0e20 0%, #0d2820 50%, #0a3525 100%); }
+
+/* Glowing orbs */
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.phones-hero .orb1  { width: 400px; height: 400px; background: rgba(30,90,255,0.25); top: -100px; right: -80px; }
+.phones-hero .orb2  { width: 300px; height: 300px; background: rgba(77,217,172,0.18); bottom: -60px; left: -60px; }
+.laptops-hero .orb1 { width: 400px; height: 400px; background: rgba(140,50,255,0.22); top: -100px; right: -80px; }
+.laptops-hero .orb2 { width: 300px; height: 300px; background: rgba(200,100,255,0.15); bottom: -60px; left: -60px; }
+.gadgets-hero .orb1 { width: 400px; height: 400px; background: rgba(20,200,130,0.2);  top: -100px; right: -80px; }
+.gadgets-hero .orb2 { width: 300px; height: 300px; background: rgba(77,217,172,0.15); bottom: -60px; left: -60px; }
+
+.cat-hero-content { position: relative; z-index: 2; }
+
+.cat-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4dd9ac;
+    background: rgba(77,217,172,0.1);
+    border: 1px solid rgba(77,217,172,0.25);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.cat-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 14px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.cat-hero p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ── Main grid wrapper ── */
+.cat-main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 24px 80px;
+}
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+/* ── Product Cards ── */
+.pcard {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s;
+    backdrop-filter: blur(6px);
+}
+
+.pcard:hover {
+    transform: translateY(-7px);
+    border-color: rgba(77,217,172,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(77,217,172,0.1);
+}
+
+/* Image wrapper */
+.pcard-img-wrap {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+}
+
+.pcard-img-wrap img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+    filter: brightness(0.88) saturate(1.1);
+}
+
+.pcard:hover .pcard-img-wrap img {
+    transform: scale(1.07);
+    filter: brightness(1) saturate(1.2);
+}
+
+/* Badge */
+.pbadge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 50px;
+}
+
+.pbadge.hot  { background: #ff4757; color: #fff; }
+.pbadge.new  { background: #4dd9ac; color: #080e1f; }
+.pbadge.deal { background: #ffd32a; color: #080e1f; }
+
+/* Card body */
+.pcard-body {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+}
+
+.pbrand {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4dd9ac;
+}
+
+.pcard-body h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.pcard-body p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.45);
+    margin: 4px 0 10px;
+    flex: 1;
+    line-height: 1.5;
+}
+
+.pprice {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pbtn {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #1ebe5a);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 11px 18px;
+    border-radius: 9px;
+    text-align: center;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(37,211,102,0.25);
+}
+
+.pbtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+    .cat-hero { padding: 80px 20px 60px; }
+    .cat-main { padding: 36px 16px 60px; }
+    .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pcard-img-wrap img { height: 160px; }
+    .pcard-body { padding: 14px 14px 18px; }
+}
+
+@media (max-width: 420px) {
+    .cat-grid { grid-template-columns: 1fr; }
+}
