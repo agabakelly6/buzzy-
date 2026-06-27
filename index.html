@@ -5,70 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelly Accessories - Premium Phones & Laptops</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation Bar Menu -->
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Kelly Accessories</a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="#" class="logo">
+                <span class="logo-icon">📱</span>
+                <span class="logo-text">Kelly <span class="logo-accent">Accessories</span></span>
+            </a>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <a href="https://wa.me/256702587863" target="_blank" class="nav-cta">
+                        💬 WhatsApp Us
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero Header -->
     <header>
-        <h1>Kelly Accessories</h1>
-        <p>Your Ultimate Destination for Smartphones, Laptops & Premium Gadgets</p>
+        <div class="header-content">
+            <p class="header-eyebrow">📍 Hobart Street, Masaka · Uganda</p>
+            <h1>Kelly Accessories</h1>
+            <p class="header-sub">Your Ultimate Destination for Smartphones, Laptops & Premium Gadgets</p>
+            <div class="header-actions">
+                <a href="#products" class="btn-primary">Browse Products</a>
+                <a href="https://wa.me/256702587863" target="_blank" class="btn-secondary">💬 Chat on WhatsApp</a>
+            </div>
+        </div>
     </header>
 
     <main>
-        <!-- Added id="products" to connect the nav menu link here -->
+        <!-- Products Section -->
         <section class="products" id="products">
-            <h2>Our Featured Products</h2>
+            <div class="section-header">
+                <span class="section-tag">What We Sell</span>
+                <h2>Our Featured Products</h2>
+                <p class="section-desc">Quality tech, great prices — walk in or order via WhatsApp.</p>
+            </div>
             <div class="product-grid">
-                
+
                 <div class="product-card">
-                    <img src="https://unsplash.com" alt="Smartphones" class="product-img">
-                    <h3>Smartphones</h3>
-                    <p>Latest flagship devices, budget-friendly phones, and essential mobile accessories.</p>
+                    <div class="product-img-wrap">
+                        <img
+                            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop"
+                            alt="Smartphones"
+                            class="product-img">
+                        <span class="product-badge">Best Sellers</span>
+                    </div>
+                    <div class="product-body">
+                        <h3>Smartphones</h3>
+                        <p>Latest flagship devices, budget-friendly phones, and essential mobile accessories.</p>
+                        <a href="https://wa.me/256702587863?text=Hi%20Kelly%20Accessories!%20I'm%20interested%20in%20Smartphones." target="_blank" class="product-btn">Enquire Now →</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://unsplash.com" alt="Laptops" class="product-img">
-                    <h3>Laptops</h3>
-                    <p>High-performance gaming laptops, sleek business notebooks, and reliable student devices.</p>
+                    <div class="product-img-wrap">
+                        <img
+                            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&auto=format&fit=crop"
+                            alt="Laptops"
+                            class="product-img">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-body">
+                        <h3>Laptops</h3>
+                        <p>High-performance gaming laptops, sleek business notebooks, and reliable student devices.</p>
+                        <a href="https://wa.me/256702587863?text=Hi%20Kelly%20Accessories!%20I'm%20interested%20in%20Laptops." target="_blank" class="product-btn">Enquire Now →</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://unsplash.com" alt="Gadgets" class="product-img">
-                    <h3>Gadgets & More</h3>
-                    <p>Premium headphones, smartwatches, power banks, and original charging accessories.</p>
+                    <div class="product-img-wrap">
+                        <img
+                            src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&auto=format&fit=crop"
+                            alt="Gadgets & Accessories"
+                            class="product-img">
+                        <span class="product-badge">New In</span>
+                    </div>
+                    <div class="product-body">
+                        <h3>Gadgets & More</h3>
+                        <p>Premium headphones, smartwatches, power banks, and original charging accessories.</p>
+                        <a href="https://wa.me/256702587863?text=Hi%20Kelly%20Accessories!%20I'm%20interested%20in%20Gadgets." target="_blank" class="product-btn">Enquire Now →</a>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Added id="contact" to connect the nav menu link here -->
+        <!-- Contact Section -->
         <section class="contact-info" id="contact">
-            <h2>Contact & Visit Us</h2>
-            <p><strong>📍 Address:</strong> Plot 14, Hobart Street, Masaka, Uganda</p>
-            <p><strong>📞 Phone:</strong> +256 700 000000</p>
-            <p><strong>✉️ Email:</strong> info@kellyaccessories.com</p>
-            <p><strong>🕒 Hours:</strong> Monday - Saturday: 8:00 AM - 7:00 PM</p>
-            
-            <a href="https://wa.me!" target="_blank" class="whatsapp-btn">
+            <div class="section-header">
+                <span class="section-tag">Find Us</span>
+                <h2>Contact & Visit Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-detail">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Address</strong>
+                        <p>Plot 14, Hobart Street, Masaka, Uganda</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <strong>Phone</strong>
+                        <p><a href="tel:+256702587863">+256 702 587 863</a></p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>Email</strong>
+                        <p><a href="mailto:info@kellyaccessories.com">info@kellyaccessories.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <span class="contact-icon">🕒</span>
+                    <div>
+                        <strong>Hours</strong>
+                        <p>Monday – Saturday: 8:00 AM – 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/256702587863" target="_blank" class="whatsapp-btn">
                 💬 Chat with Us on WhatsApp
             </a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Kelly Accessories. All rights reserved.</p>
+        <p>&copy; 2026 Kelly Accessories. All rights reserved. · Masaka, Uganda</p>
     </footer>
 
+    <script>
+        // Sticky navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // Mobile hamburger toggle
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        });
+
+        // Active nav link highlight on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                document.getElementById('nav-links').classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
