@@ -1,0 +1,372 @@
+/* ═══════════════════════════════════════════════════════
+   UPGRADES.CSS
+   Covers: loader, scroll-reveal, dark/light toggle,
+   reviews, related products, mobile bottom nav,
+   WhatsApp float, about section
+═══════════════════════════════════════════════════════ */
+
+/* ── 1. PAGE LOADER ── */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #080e1f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#page-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+.loader-logo span { color: #4dd9ac; }
+.loader-bar-track {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 99px;
+    overflow: hidden;
+}
+.loader-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4dd9ac, #25D366);
+    border-radius: 99px;
+    animation: loadfill 1s ease forwards;
+}
+@keyframes loadfill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+/* ── 2. DARK / LIGHT MODE TOGGLE ── */
+body { transition: background 0.4s, color 0.4s; }
+
+/* Light mode overrides — applied when <body> has class "light" */
+body.light {
+    background-color: #f4f6fb !important;
+    color: #1a202c !important;
+}
+body.light .product-page { background-color: #f0f4ff !important; }
+body.light .product-page::before { opacity: 0.3; }
+body.light .cat-hero { filter: brightness(1.15) saturate(0.8); }
+body.light .pcard {
+    background: #fff !important;
+    border-color: #e2e8f0 !important;
+    color: #1a202c !important;
+}
+body.light .pcard-body h3 { color: #0f2557 !important; }
+body.light .pcard-body p  { color: #64748b !important; }
+body.light .pprice         { color: #0f2557 !important; }
+body.light .cat-hero h1    { color: #fff !important; }
+body.light .navbar         { background: linear-gradient(90deg,#0f2557,#1a3a8a) !important; }
+body.light footer          { background: #0f1e45 !important; }
+body.light .reviews-section { background: #fff; }
+body.light .review-card    { background: #f8faff; border-color: #e2e8f0; }
+body.light .review-card p  { color: #475569; }
+body.light .review-name    { color: #0f2557; }
+body.light .related-section { background: #f0f4ff; }
+body.light .about-section  { background: #fff; }
+body.light .about-section p { color: #475569; }
+
+/* Toggle button */
+.theme-toggle {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+.theme-toggle:hover { transform: scale(1.1); background: rgba(255,255,255,0.2); }
+body.light .theme-toggle { background: #0f2557; border-color: #0f2557; }
+
+/* ── 3. FLOATING WHATSAPP BUTTON ── */
+.wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    z-index: 500;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    animation: wapulse 2.5s infinite;
+    transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.12); animation: none; }
+@keyframes wapulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50%      { box-shadow: 0 4px 34px rgba(37,211,102,0.85), 0 0 0 10px rgba(37,211,102,0.08); }
+}
+
+/* ── 4. SCROLL REVEAL ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+.reveal-delay-7 { transition-delay: 0.7s; }
+.reveal-delay-8 { transition-delay: 0.8s; }
+
+/* ── 5. ABOUT SECTION (homepage) ── */
+.about-section {
+    background: #fff;
+    border-radius: 18px;
+    padding: 50px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(15,37,87,0.07);
+    margin-bottom: 50px;
+}
+.about-text .section-tag { margin-bottom: 12px; }
+.about-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #0f2557;
+    font-size: clamp(1.5rem,3vw,2rem);
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+.about-text p {
+    color: #64748b;
+    line-height: 1.8;
+    margin: 0 0 20px;
+    font-size: 0.97rem;
+}
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 10px;
+}
+.about-stat {
+    background: #f4f6fb;
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-align: center;
+}
+.about-stat strong {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f2557;
+}
+.about-stat span { font-size: 0.8rem; color: #64748b; }
+.about-img-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 300px;
+}
+.about-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.92);
+}
+
+/* ── 6. REVIEWS SECTION ── */
+.reviews-section {
+    background: #080e1f;
+    padding: 60px 24px;
+    position: relative;
+    z-index: 1;
+}
+body:not(.product-page) .reviews-section {
+    background: #f4f6fb;
+    border-radius: 18px;
+}
+.reviews-section .section-header { margin-bottom: 36px; }
+.reviews-section .section-header h2 { color: inherit; }
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    padding: 24px;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s, border-color 0.25s;
+}
+.review-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(77,217,172,0.3);
+}
+.review-stars { font-size: 1rem; margin-bottom: 10px; color: #ffd32a; letter-spacing: 2px; }
+.review-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin: 0 0 16px;
+    font-style: italic;
+}
+.review-footer { display: flex; align-items: center; gap: 10px; }
+.review-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#4dd9ac,#1a3a8a);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+}
+.review-name { font-size: 0.87rem; font-weight: 600; color: #fff; }
+.review-location { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+/* On homepage (light bg) */
+body:not(.product-page) .review-card {
+    background: #fff;
+    border-color: #e2e8f0;
+}
+body:not(.product-page) .review-card p { color: #475569; }
+body:not(.product-page) .review-name { color: #0f2557; }
+body:not(.product-page) .review-location { color: #94a3b8; }
+
+/* ── 7. RELATED PRODUCTS ── */
+.related-section {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 60px 24px;
+    position: relative;
+    z-index: 1;
+}
+.related-section .section-header { margin-bottom: 32px; }
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.related-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.25s, border-color 0.25s;
+}
+.related-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(77,217,172,0.3);
+}
+.related-card img {
+    width: 100%; height: 140px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: filter 0.3s;
+}
+.related-card:hover img { filter: brightness(1); }
+.related-card-body { padding: 14px 16px; }
+.related-card-body h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+}
+.related-card-body .related-price {
+    font-size: 0.88rem;
+    color: #4dd9ac;
+    font-weight: 600;
+}
+.related-card-body .related-cat {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+/* ── 8. MOBILE BOTTOM NAV ── */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(8,14,31,0.97);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    z-index: 400;
+    padding: 8px 0 env(safe-area-inset-bottom, 8px);
+}
+.bottom-nav-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.bn-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 10px;
+    transition: color 0.2s;
+    min-width: 56px;
+}
+.bn-item .bn-icon { font-size: 1.35rem; line-height: 1; }
+.bn-item.active, .bn-item:hover { color: #4dd9ac; }
+.bn-item.wa { color: #25D366; }
+.bn-item.wa:hover { color: #1ebe5a; }
+
+@media (max-width: 700px) {
+    .bottom-nav { display: block; }
+    /* Push page content above bottom nav */
+    body { padding-bottom: 72px; }
+    /* Hide floating WA on mobile since bottom nav has it */
+    .wa-float { display: none; }
+    /* Push theme toggle up */
+    .theme-toggle { bottom: 84px; }
+}
