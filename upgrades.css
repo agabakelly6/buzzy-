@@ -84,24 +84,23 @@ body.light .about-section p { color: #475569; }
     position: fixed;
     bottom: 90px;
     right: 20px;
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: #1a3a8a;
+    border: 2px solid #4dd9ac;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 500;
-    backdrop-filter: blur(8px);
-    transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(26,58,138,0.5), 0 0 0 3px rgba(77,217,172,0.15);
 }
-.theme-toggle:hover { transform: scale(1.1); background: rgba(255,255,255,0.2); }
-body.light .theme-toggle { background: #0f2557; border-color: #0f2557; }
+.theme-toggle:hover { transform: scale(1.12); box-shadow: 0 6px 22px rgba(26,58,138,0.7), 0 0 0 5px rgba(77,217,172,0.2); }
+body.light .theme-toggle { background: #0f2557; border-color: #4dd9ac; color: #fff; }
 
 /* ── 3. FLOATING WHATSAPP BUTTON ── */
 .wa-float {
@@ -370,3 +369,7 @@ body:not(.product-page) .review-location { color: #94a3b8; }
     /* Push theme toggle up */
     .theme-toggle { bottom: 84px; }
 }
+
+/* Instagram bottom nav item */
+.bn-item.ig { color: #fd1d1d; }
+.bn-item.ig:hover { color: #fcb045; }
